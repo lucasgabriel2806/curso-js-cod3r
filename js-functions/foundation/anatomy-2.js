@@ -9,6 +9,8 @@
 var sum = function (a, b) {
     return a + b;
 }
+/** var sum = function abc(a, b)... 
+não consigo chamar abc(1, 2)ela não existe */
 
 var result = sum(1, 2);
 console.log(result);
