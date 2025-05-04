@@ -21,21 +21,30 @@ defaultParams(); // 1 2 3
 console.log(1);
 console.log(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-function logNums(nums) {
+function logNums1(nums) {
     for(let n of nums) {
         console.log(n);
     }
 }
 
-logNums([1, 2, 3, 4, 5, 6]);
+logNums1([1, 2, 3, 4, 5, 6]);
 
 // spread/rest
-function logNums(...nums) {
-    for(let n of nums) {
-        console.log(n);
-    }
+/** Significa que essa função vai conseguir receber uma quantidade variável de parametros e todos eles são armazenados numa função. */
+function logNums2(...nums) {
+    //console.log(Array.isArray(nums));
+    console.log(nums);
+    
 }
 
-logNums([1, 2, 3, 4, 5, 6]);
+logNums2(1, 2, 3, 4, 5, 6);
 
-// 6:52
+function sumAll(...nums) {
+    let total = 0;
+    for(let n of nums) {
+        total += n;
+    }
+    return total;
+}
+
+console.log(sumAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
