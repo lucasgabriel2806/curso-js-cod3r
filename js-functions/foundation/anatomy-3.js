@@ -21,5 +21,5 @@ console.log(increment2(5));
 console.log(increment3(24));
 console.log(increment4(199));
 
-const sum (a, b) => a + b;
-console.log(sum(3, 8))
+const sum = (a, b) => a + b;
+console.log(sum(3, 8));
