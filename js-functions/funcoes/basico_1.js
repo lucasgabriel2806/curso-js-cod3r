@@ -10,6 +10,7 @@ bomDia();
 // Function Expression
 // Eu trato e armazeno uma função dentro de uma variável
 // Via de regra, usamos uma função anonima
+// const boaTarde = function bT()...
 const boaTarde = function () {
     console.log('Boa tarde!');
 }
