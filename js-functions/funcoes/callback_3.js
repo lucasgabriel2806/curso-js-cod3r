@@ -20,10 +20,34 @@ const carrinho = [
     { nome: 'Tesoura', qtde: 1, preco: 19.20 },
 ];
 
-const nomesCarrinho = carrinho.map(el => el.nome);
+// const nomesCarrinho = carrinho.map(el => el.nome);
+
+// console.log(nomesCarrinho);
+
+// const totalCarrinho = carrinho.map(el => el.qtde * el.preco);
+
+// console.log(totalCarrinho);
+
+Array.prototype.meuMap = function(fn) {
+
+    const novoArray = [];
+
+    for(let i = 0; i < this.length; i++) {
+
+        const resultado = fn(this[i], i, this);
+
+        novoArray.push(`==> ${resultado}`);
+
+    }
+
+    return novoArray;
+
+}
+
+const nomesCarrinho = carrinho.meuMap(el => el.nome);
 
 console.log(nomesCarrinho);
 
-const totalCarrinho = carrinho.map(el => el.qtde * el.preco);
+const totalCarrinho = carrinho.meuMap(el => el.qtde * el.preco);
 
 console.log(totalCarrinho);
