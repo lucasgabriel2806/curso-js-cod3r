@@ -1,3 +1,4 @@
+// FUnção Construtora - O objetivo dela é construir / criar objetos
 function Produto(nome, preco, desc = 0.50) {
 
     this.nome = nome;
