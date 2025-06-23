@@ -31,3 +31,13 @@ const conteudo = fs.readFileSync(caminho);
 console.log(conteudo.toString());
 
 console.log('Fim Sync...');
+
+let p = new Promise(function(resolve) {
+
+    fs.readFile(caminho, {}, exibirConteudo);
+
+    resolve()
+
+});
+
+p.then(console.log);

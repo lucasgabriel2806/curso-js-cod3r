@@ -5,7 +5,7 @@ function gerarNumerosEntre(min, max) {
 
         /** Destructuring */
         [max, min] = [min, max];
-                    /** Array */
+                     /** Array */
 
     }
 
