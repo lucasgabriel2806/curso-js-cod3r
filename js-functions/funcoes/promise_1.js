@@ -18,5 +18,3 @@ p
     .then(letraMinuscula)
     // .then(v => console.log(v))
     .then(console.log);
-
-// 13:40

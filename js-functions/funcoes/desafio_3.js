@@ -1,43 +1,25 @@
-const { Console } = require('console');
-
 const fs = require('fs');
 
 const path = require('path');
 
-const caminho = path.join(__dirname, 'dados.txt');
+function lerArquivo(caminho) {
 
-// Posso colocar _ no err, isso significa que
-// eu não vou usar aquele parametro(é uma convenção).
-function exibirConteudo(_, conteudo) {
+    return new Promise(resolve => {
 
-    console.log(conteudo.toString());
+        fs.readFile(caminho, function(_, conteudo) { 
+
+            resolve(conteudo.toString());
+
+        });
+
+    });
 
 }
 
-console.log('Inicio...');
+const caminho = path.join(__dirname, 'dados.txt');
 
-// Posso omitir o {}.
-fs.readFile(caminho, {}, exibirConteudo);
-
-fs.readFile(caminho, (_, conteudo) => console.log(conteudo.toString));
-
-// O fim será exibido antes porque não fica esperando o readFile terminar de ler o arquivo 
-console.log('Fim...');
-
-console.log('Inicio Sync...');
-
-const conteudo = fs.readFileSync(caminho);
-
-console.log(conteudo.toString());
-
-console.log('Fim Sync...');
-
-let p = new Promise(function(resolve) {
-
-    fs.readFile(caminho, {}, exibirConteudo);
-
-    resolve()
-
-});
-
-p.then(console.log);
+lerArquivo(caminho)
+    .then(conteudo => conteudo.split('\n'))
+    .then(linhas => linhas.join(','))
+    .then(conteudo => `O valor final é: ${conteudo}`)
+    .then(console.log);
