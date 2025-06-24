@@ -46,7 +46,14 @@ function gerarVariosNumeros() {
 
 }
 
-gerarVariosNumeros()
-    .then(numeros => console.log(numeros));
+console.time('promise');
 
-// 4:47
+gerarVariosNumeros()
+    .then(numeros => console.log(numeros))
+    .then(() => {
+
+        console.timeLog('promise');
+        
+        console.timeEnd('promise');
+
+    });
