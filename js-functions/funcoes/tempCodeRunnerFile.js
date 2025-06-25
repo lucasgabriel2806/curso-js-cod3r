@@ -1,34 +1,11 @@
-function gerarNumerosEntre(min, max, numerosProibidos) {
-
-    /** Correção caso digite a ordem errada */
-    if(min > max) {
-
-        /** Destructuring */
-        [max, min] = [min, max];
-                     /** Array */
-
-    }
-
-    return new Promise((resolve, reject) => {
-
-        const fator = max - min + 1;
-
-        const aleatorio = parseInt(Math.random() * fator) + min;
-
-        if(numerosProibidos.includes(aleatorio)) {
-
-            reject('Número repetido.')
-
+Array.prototype.meuReduce = function(fn, inicial) {
+    let acc = inicial
+    for(let i = 0; i < this.length; i++) {
+        if(!acc && i === 0) {
+            acc = this[i]
         } else {
-
-            resolve(aleatorio);
-
+            acc = fn(acc, this[i], i, this)
         }
-
-    });
-
+    }
+    return acc
 }
-
-gerarNumerosEntre(1, 5, [1, 2, 4])
-    .then(console.log)
-    .catch(console.log);
